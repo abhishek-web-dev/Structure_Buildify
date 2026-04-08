@@ -1,0 +1,143 @@
+.hero {
+  position: relative;
+  height: 100vh;
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding-top: 90px;
+}
+
+.bg {
+  position: absolute;
+  inset: 0;
+  background-image: url('/Home_Banner.png');
+  background-size: cover;
+  background-position: center;
+  z-index: 1;
+}
+
+.bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.6);
+}
+
+[data-theme='dark'] .bg::after {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+  padding: 0 5%;
+  max-width: 900px;
+  text-align: center;
+}
+
+.title {
+  font-family: 'DM Sans', sans-serif;
+  font-size: clamp(2.5rem, 5vw, 4rem); /* Reduced from 6rem */
+  font-weight: 800;
+  line-height: 1.2;
+  color: #1a1a1a;
+  margin-bottom: 24px;
+  letter-spacing: -0.02em;
+}
+
+[data-theme='dark'] .title {
+  color: white;
+}
+
+.highlight {
+  color: var(--gold);
+}
+
+.subheading {
+  font-size: 1.25rem;
+  color: #333;
+  max-width: 800px;
+  margin: 0 auto 16px;
+  line-height: 1.6;
+  font-weight: 600;
+}
+
+[data-theme='dark'] .subheading {
+  color: #eee;
+}
+
+.description {
+  font-size: 1rem;
+  color: #555;
+  max-width: 750px;
+  margin: 0 auto 48px;
+  line-height: 1.7;
+  font-weight: 400;
+}
+
+[data-theme='dark'] .description {
+  color: #bbb;
+}
+
+.btns {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btnPrimary {
+  background: var(--gold);
+  color: white;
+  padding: 14px 32px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(245, 158, 11, 0.2);
+}
+
+.btnPrimary:hover {
+  background: #D97706;
+  transform: translateY(-2px);
+}
+
+.btnSecondary {
+  background: transparent;
+  color: #111;
+  padding: 14px 32px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 1rem;
+  border: 1px solid #333; /* Slightly thinner border */
+  transition: all 0.3s ease;
+}
+
+[data-theme='dark'] .btnSecondary {
+  color: white;
+  border-color: white;
+}
+
+.btnSecondary:hover {
+  background: rgba(0, 0, 0, 0.05);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 2.2rem;
+  }
+  .description {
+    font-size: 1rem;
+  }
+  .btns {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 0 10%;
+  }
+}

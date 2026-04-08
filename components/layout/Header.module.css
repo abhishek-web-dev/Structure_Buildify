@@ -1,0 +1,217 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: var(--header-bg);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border-color);
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+  padding: 0 8%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 90px; /* Matching the spacious look in the image */
+}
+
+.logo {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.logoCircle {
+  width: 64px;
+  height: 64px;
+  background: white;
+  border-radius: 50%;
+  border: 4px solid var(--gold); /* Thicker gold border as seen in image */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.logoImage {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 4px;
+}
+
+.logoText {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1.75rem;
+  font-weight: 800; /* Extra bold as per image */
+  color: var(--navy);
+  letter-spacing: -0.03em;
+}
+
+.logoText span {
+  color: var(--gold);
+}
+
+[data-theme='dark'] .logoText {
+  color: white;
+}
+
+[data-theme='dark'] .logoText span {
+  color: var(--gold);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 60px; /* Increased gap to center links between logo and actions */
+}
+
+.navLinks {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  list-style: none;
+}
+
+.navLinks a {
+  color: #333; /* Darker links in light mode */
+  text-decoration: none;
+  font-size: 1.05rem;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+[data-theme='dark'] .navLinks a {
+  color: var(--text-secondary);
+}
+
+.navLinks a:hover, .navLinks a.active {
+  color: var(--gold);
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdownMenu {
+  position: absolute;
+  top: calc(100% + 20px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+  border-radius: 10px;
+  min-width: 240px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.2s;
+  list-style: none;
+  padding: 10px 0;
+}
+
+.dropdown:hover .dropdownMenu {
+  opacity: 1;
+  visibility: visible;
+  top: calc(100% + 10px);
+}
+
+.dropdownMenu li a {
+  display: block;
+  padding: 12px 24px;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+}
+
+.dropdownMenu li a:hover {
+  background: var(--bg-secondary);
+  color: var(--gold);
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.themeToggle {
+  background: white;
+  border: 1px solid #ddd;
+  padding: 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+}
+
+[data-theme='dark'] .themeToggle {
+  background: var(--bg-tertiary);
+  color: white;
+}
+
+.themeToggle:hover {
+  border-color: var(--gold);
+}
+
+.cta {
+  background: #F59E0B !important;
+  color: white !important;
+  padding: 14px 32px !important;
+  border-radius: 10px;
+  font-weight: 700 !important;
+  font-size: 1rem !important;
+  transition: all 0.2s !important;
+  box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
+}
+
+.cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(245, 158, 11, 0.4);
+}
+
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-primary);
+}
+
+@media (max-width: 1200px) {
+  .nav {
+    gap: 30px;
+  }
+}
+
+@media (max-width: 900px) {
+  .navLinks {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--bg-primary);
+    flex-direction: column;
+    padding: 20px;
+    gap: 20px;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .navLinks.mobileOpen {
+    display: flex;
+  }
+  
+  .hamburger {
+    display: block;
+  }
+  .header {
+    height: 80px;
+    padding: 0 5%;
+  }
+}
