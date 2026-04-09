@@ -152,3 +152,8 @@
   .description { font-size: 1.1rem; }
   .mission { font-size: 1rem; }
 }
+
+@media (max-width: 480px) {
+  .section { padding: 60px 5% 40px; }
+  .subheading { font-size: 1.3rem; }
+}

@@ -25,11 +25,11 @@
   --background: #FFFFFF;
   --foreground: #111827;
 
-  /* Font Sizes per Request */
-  --fs-main-heading: 35px;
-  --fs-section-heading: 30px;
-  --fs-body: 18px;
-  --fs-small: 15px;
+  /* Font Sizes per Request - Now with Responsive Clamping */
+  --fs-main-heading: clamp(2.2rem, 5vw, 4.5rem);
+  --fs-section-heading: clamp(1.8rem, 4vw, 3rem);
+  --fs-body: clamp(1rem, 1.1vw, 1.15rem); /* Scales around 16px to 18px */
+  --fs-small: clamp(0.85rem, 0.9vw, 1rem);
 }
 
 [data-theme='dark'] {
