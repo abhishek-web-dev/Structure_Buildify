@@ -4,6 +4,7 @@ import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import { ThemeProvider } from '@/components/ThemeProvider';
 import WhatsAppButton from '@/components/common/WhatsAppButton';
+import PopupForm from '@/components/common/PopupForm';
 
 export const metadata: Metadata = {
   title: 'Structure Buildify - Building Your Dreams',
@@ -27,6 +28,7 @@ export default function RootLayout({
           <main>{children}</main>
           <Footer />
           <WhatsAppButton />
+          <PopupForm />
         </ThemeProvider>
       </body>
     </html>
