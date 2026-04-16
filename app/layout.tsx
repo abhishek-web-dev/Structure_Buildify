@@ -1,10 +1,7 @@
 import type { Metadata } from 'next';
 import './globals.css';
-import Header from '@/components/layout/Header';
-import Footer from '@/components/layout/Footer';
 import { ThemeProvider } from '@/components/ThemeProvider';
-import WhatsAppButton from '@/components/common/WhatsAppButton';
-import PopupForm from '@/components/common/PopupForm';
+import LayoutContent from '@/components/layout/LayoutContent';
 
 export const metadata: Metadata = {
   title: 'Structure Buildify - Building Your Dreams',
@@ -24,11 +21,7 @@ export default function RootLayout({
     <html lang="en">
       <body suppressHydrationWarning>
         <ThemeProvider>
-          <Header />
-          <main>{children}</main>
-          <Footer />
-          <WhatsAppButton />
-          <PopupForm />
+          <LayoutContent>{children}</LayoutContent>
         </ThemeProvider>
       </body>
     </html>
