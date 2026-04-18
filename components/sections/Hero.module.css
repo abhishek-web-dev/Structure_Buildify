@@ -7,6 +7,103 @@
   justify-content: center;
   overflow: hidden;
   padding-top: 90px;
+  perspective: 1200px; /* For 3D door effect */
+}
+
+/* Door Animation */
+.doorContainer {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  z-index: 100;
+  pointer-events: none;
+}
+
+.door {
+  flex: 1;
+  height: 100%;
+  background: #1a1a1a; /* Dark solid door color */
+  position: relative;
+  transition: transform 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.leftDoor {
+  transform-origin: left;
+  justify-content: flex-end;
+  padding-right: 20px;
+}
+
+.rightDoor {
+  transform-origin: right;
+  justify-content: flex-start;
+  padding-left: 20px;
+}
+
+.openLeft {
+  transform: rotateY(-90deg);
+}
+
+.openRight {
+  transform: rotateY(90deg);
+}
+
+.doorHandle {
+  width: 10px;
+  height: 60px;
+  background: var(--gold);
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.doorLogo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 101;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  transition: all 1s ease;
+  pointer-events: none;
+}
+
+.logoCircle {
+  width: 180px;
+  height: 180px;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  box-shadow: 0 0 40px rgba(0,0,0,0.4);
+}
+
+.logoImage {
+  width: 100%;
+  height: auto;
+}
+
+.logoText {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: white;
+  text-shadow: 0 4px 15px rgba(0,0,0,0.6);
+}
+
+.logoText span {
+  color: var(--gold);
+}
+
+.logoFade {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(1.2);
 }
 
 .bg {

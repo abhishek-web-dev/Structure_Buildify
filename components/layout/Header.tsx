@@ -34,17 +34,6 @@ export default function Header() {
 
   const isActive = (path: string) => pathname === path || (path !== '/' && pathname.startsWith(path));
 
-  const handleLogout = () => {
-    document.cookie = "auth_token=; path=/; expires=Thu, 01 Jan 1970 00:00:01 GMT";
-    window.location.href = '/login';
-  };
-
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-  useEffect(() => {
-    setIsLoggedIn(document.cookie.includes('auth_token=true'));
-  }, [pathname]);
-
   return (
     <header className={styles.header}>
       <Link href="/" className={styles.logo} onClick={() => setMobileMenuOpen(false)}>
@@ -75,9 +64,6 @@ export default function Header() {
           </li>
           <li><Link href="/projects" className={isActive('/projects') ? styles.active : ''}>Projects</Link></li>
           <li><Link href="/contact" className={isActive('/contact') ? styles.active : ''}>Contact</Link></li>
-          {isLoggedIn && (
-            <li className={styles.mobileOnly}><button onClick={handleLogout} className={styles.logoutBtn}>Logout</button></li>
-          )}
           <li className={styles.mobileCta}>
              <Link href="/contact" className={styles.cta}>Get a Quote</Link>
           </li>
@@ -87,11 +73,6 @@ export default function Header() {
           <button onClick={toggleTheme} className={styles.themeToggle} aria-label="Toggle Theme">
             {mounted ? (theme === 'light' ? <Sun size={20} /> : <Moon size={20} />) : <div style={{width: 20, height: 20}} />}
           </button>
-          {isLoggedIn ? (
-            <button onClick={handleLogout} className={styles.logoutBtn}>Logout</button>
-          ) : (
-            <Link href="/login" className={styles.cta}>Login</Link>
-          )}
           <Link href="/contact" className={styles.cta}>Get a Quote</Link>
           <button className={styles.hamburger} onClick={() => setMobileMenuOpen(true)}>
             <Menu size={24} />

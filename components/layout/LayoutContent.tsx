@@ -4,17 +4,16 @@ import { usePathname } from 'next/navigation';
 import Header from './Header';
 import Footer from './Footer';
 import WhatsAppButton from '@/components/common/WhatsAppButton';
+import PopupForm from '@/components/common/PopupForm';
 
 export default function LayoutContent({ children }: { children: React.ReactNode }) {
-  const pathname = usePathname();
-  const isAuthPage = pathname === '/login' || pathname === '/signup';
-
   return (
     <>
-      {!isAuthPage && <Header />}
+      <Header />
       <main>{children}</main>
-      {!isAuthPage && <Footer />}
-      {!isAuthPage && <WhatsAppButton />}
+      <Footer />
+      <WhatsAppButton />
+      <PopupForm />
     </>
   );
 }

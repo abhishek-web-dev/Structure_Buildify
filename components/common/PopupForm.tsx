@@ -15,17 +15,10 @@ const PopupForm = () => {
   useEffect(() => {
     let timer: NodeJS.Timeout;
 
-    const showPopup = () => {
-      // Random delay between 5 and 10 seconds (5000ms to 10000ms)
-      const delay = Math.floor(Math.random() * (10000 - 5000 + 1)) + 5000;
-      
+    if (!isOpen) {
       timer = setTimeout(() => {
         setIsOpen(true);
-      }, delay);
-    };
-
-    if (!isOpen) {
-      showPopup();
+      }, 5000);
     }
 
     return () => clearTimeout(timer);
